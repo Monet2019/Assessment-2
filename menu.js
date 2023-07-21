@@ -32,6 +32,17 @@
 
 //CODE HERE
 
+const pizza = {
+    name: 'Vegan Buffalo Chicken Pizza',
+    price: 15.99,
+    category: 'entree',
+    popularity: 9.5,
+    rating: 4.8,
+    tags: ['vegan', 'new', 'gluten-free'],
+  };
+  
+  console.log(pizza);
+  
 
 
 //////////////////PROBLEM 2////////////////////
@@ -44,6 +55,7 @@
 
 //CODE HERE
 
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,6 +65,8 @@
 */
 
 //CODE HERE
+
+console.log(pizza.tags[1])
 
 
 /*
@@ -64,6 +78,8 @@
 
 //CODE HERE
 
+let { price } = pizza;
+console.log(price);
 
 /*
     Fourth, and last, destructure the category
@@ -74,6 +90,8 @@
 
 //CODE HERE
 
+let { category } = pizza;
+console.log(category);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -89,7 +107,52 @@
 
 //CODE HERE
 
+const foodArr = [
+    {
+      name: 'Margherita Pizza',
+      price: 18.99,
+      category: 'entree',
+      popularity: 7.7,
+      rating: 4.7,
+      tags: ['vegetarian', 'traditional', 'gluten-free'],
+    },
+    {
+      name: 'Pepperoni Pizza',
+      price: 10.99,
+      category: 'entree',
+      popularity: 8.7,
+      rating: 4.5,
+      tags: ['meat', 'traditional'],
+    },
+    {
+      name: 'Hawaiian Pizza',
+      price: 14.99,
+      category: 'entree',
+      popularity: 8.8,
+      rating: 4.5,
+      tags: ['meat', 'ham', 'pineapple', ],
+    },
+    {
+      name: 'Wings',
+      price: 12.99,
+      category: 'appetizer',
+      popularity: 9.3,
+      rating: 4.8,
+      tags: ['6 flavors', 'appetizer'],
+    },
+    {
+      name: 'Greek Salad',
+      price: 5.99,
+      category: 'appetizer',
+      popularity: 9.5,
+      rating: 5.0,
+      tags: ['salad', 'popular item'],
+    },
+  ];
+  
 
+  console.log(foodArr);
+  
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,9 +168,14 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+//let filterTag = (tag) => {
+  //  return foodArr.filter((food) => food.tags.includes(tag));
+//  };
 
+  //const filteredFood = filterTag('appetizer');
 
+  const filteredFood = foodArr.filter((food) => food.tags.includes('appertizer'));
+  console.log("Filtered:", filteredFood);
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -150,7 +218,18 @@
 
 //CODE HERE
 
-
+function filterByProperty(property, number, type) {
+    const filteredArray = foodArr.filter((food) => {
+      if (type === 'above') {
+        return food[property] > number;
+      } else if (type === 'below') {
+        return food[property] < number;
+      }
+      return false;
+    });
+  
+    return filteredArray;
+}
 /*
     Invoke the `filterByProperty` function passing
     in a value for each paramter.
@@ -159,3 +238,9 @@
 */
 
 //CODE HERE
+
+const aboveRatedFoods = filterByProperty('rating', 4.0, 'above');
+console.log("High Rated Foods", aboveRatedFoods);
+
+const affordableFoods = filterByProperty('price', 8, 'below');
+console.log("Afforable Foods:", affordableFoods);
