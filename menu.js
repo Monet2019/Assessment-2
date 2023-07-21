@@ -168,12 +168,6 @@ const foodArr = [
 
 //CODE HERE
 
-//let filterTag = (tag) => {
-  //  return foodArr.filter((food) => food.tags.includes(tag));
-//  };
-
-  //const filteredFood = filterTag('appetizer');
-
   const filteredFood = foodArr.filter((food) => food.tags.includes('appertizer'));
   console.log("Filtered:", filteredFood);
 

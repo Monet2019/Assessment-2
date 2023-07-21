@@ -35,7 +35,7 @@ const cart = [
 
 //CODE HERE
 
-const sum = (accumulator, item) => accumulator + item.price;
+let sum = (accumulator, item) => accumulator + item.price;
 let summedPrice = cart.reduce(sum, 0);
 console.log(summedPrice);
 
